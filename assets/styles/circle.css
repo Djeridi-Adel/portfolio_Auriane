@@ -1,0 +1,26 @@
+.circle1{
+    margin: 6px 3px 0px 0px;
+    background:#ad795b;
+    border-radius:50%;
+    width:10px;
+    height:10px;
+    border:2px solid #ad795b;
+}
+.circle2{
+    margin: 6px 3px 0px 0px;
+    background:#ff914d;
+    border-radius:50%;
+    width:10px;
+    height:10px;
+    border:2px solid #ff914d;
+    opacity: 55%;
+}
+.circle3{
+    margin: 6px 3px 0px 0px;
+    background:#ffbd59;
+    border-radius:50%;
+    width:10px;
+    height:10px;
+    border:2px solid #ffbd59;
+    opacity: 55%;
+}

@@ -1,0 +1,123 @@
+/* Base */
+body {
+    text-align: center;
+    margin-top: 50px;
+    font-family: 'Quicksand', sans-serif;
+  }
+  
+  .image-gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-top: 20px;
+  }
+
+  .clickable-img_wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .clickable-img_wrapper:hover{
+    transform: scale(1.05);
+    transition: 0.2s ease-out;
+  }
+
+  #clickable-img_span{
+    font-family: "Dancing Script", cursive;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  img.clickable-img {
+    width: 200px;
+    height: 150px;
+    margin: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px #a44f30;
+  }
+  
+  
+  /* Modale */
+  .modal {
+    background-image: url("../images/background2.png");
+    display: none;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    justify-content: center;
+    transition: right 0.3s ease;
+    z-index: 999;
+    text-align: center;
+    margin-top: 50px;
+    white-space: pre-line;
+  }
+  
+  .modal.show {
+    display: flex;
+    right: 0;
+  }
+  
+.modal_title_wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}  
+
+#modalTitle_span, #secondModalTitle_span{
+    font-family: "Dancing Script", cursive;
+    font-size: 40px;
+    color: #a44f30;
+}
+  .modal-content {
+    padding: 20px;
+    border-radius: 10px;
+    transform: scale(0.95);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+    width: 90%;
+  }
+  
+  .modal.show .modal-content {
+    transform: scale(1);
+    opacity: 1;
+  }
+  
+  .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 28px;
+    cursor: pointer;
+  }
+  
+  /* Images dans la modale */
+  .modal-images {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+  }
+  
+  .modal_img {
+    width: 500px;
+    max-width: 90%;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+.modal-content-description{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  width: 100%;
+}

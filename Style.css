@@ -1,0 +1,214 @@
+ @import "./assets/styles/animation.css";
+ @import "./assets/styles/nav.css";
+ @import "./assets/styles/header.css";
+ @import "./assets/styles/separator.css";
+ @import "./assets/styles/circle.css";
+ @import "./assets/styles/progress_bar.css";
+ @import "./assets/styles/modal.css";
+ @import "./assets/styles/internship.css";
+ 
+::-webkit-scrollbar {
+    display: none;
+}
+
+body{
+    margin: 0;
+    background: linear-gradient(90deg, #ffe6d1, #ffe4ce, #ffe3ca, #ffe1c7, #ffdfc4, #ffddc1, #ffdcbd, #ffdaba);
+
+}
+
+.subhead{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "League Spartan", sans-serif;
+}
+
+h2{
+    margin-left: 5px;
+    font-size: 40px;
+}
+.introduction p{
+    padding: 30px 30px 30px 30px;
+    font-family: "Quicksand", sans-serif;
+    margin: 0;
+}
+
+.color_span{
+    color: #a44f30;
+    font-weight: bold;
+}
+.underline_span{
+    text-decoration: underline #a44f30;
+}
+
+#about, #skills, #internship{
+    padding-top: 200px;
+    padding-bottom: 250px;
+}
+
+
+.skill_wrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding-top: 100px;
+}
+
+.skill_panel{
+    display: flex;
+    align-items: center;
+    padding: 2px;
+    margin: 10px;
+    height: 50px;
+}
+
+.skill_panel2{
+    width: 50%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.other_skill_panel{
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 20px;
+    gap: 20px;
+    margin: 0 20px 0 20px;
+}
+
+.quote_div{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.quote{
+    font-family: "Quicksand", sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    text-wrap: nowrap;
+}
+
+.logo_skills{
+    display: flex;
+    align-items: center;
+    width: 200px;
+}
+.margin-right_logo{
+margin-right: 5px;
+}
+.fa-youtube{
+    color: red;
+    font-size: 25px;
+}
+.fa-instagram{
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(#833ab4,#fd1d1d,#fcb045);
+    color: white;
+    border-radius: 27% 27% 27% 27%;
+    width: 25px;
+    font-size: 25px;
+}
+.fa-meta{
+    color: #0668E1;
+    font-size: 25px;
+}
+.tiktok{
+    width: 30px;
+    height: 30px;
+}
+.snapchat{
+    width: 30px;
+}
+.yammer{
+    width: 35px;
+    height: 35px;
+}
+.canva{
+    width: 35px;
+}
+.teams{
+    width: 35px;
+
+}
+.office{
+    width: 50px;
+}
+
+.etude_marche{
+    font-family: "Quicksand", sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.personality{
+    display: flex;
+    align-items: center;
+    margin: 20px;
+}
+
+.personality span{
+    font-family: 'Quicksand', sans-serif;
+}
+.personality_logo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 10px;
+}
+.personality img{
+    height: 70px;
+}
+.skills_card{
+    min-height: 200px;
+    max-height: 500px;
+    min-width: 300px;
+    max-width: none;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 6%;
+    background: radial-gradient(#fef0e6, #fee2cf);
+}
+.white_search_bar_span{
+    font-family: "Quicksand", sans-serif;
+    font-size: 15px;
+    margin-right: 15px;
+}
+
+.progress_bar_other{
+    position: absolute;
+    padding-bottom: 2px;
+    color: black;
+    background-color: #a44f30;
+    width: 10%;
+    border-radius: 24px;
+    height: 30px;
+}
+#progress_bar_other{
+    width: 65%;
+}
+
+#loading_text_other{
+    font-size: 20px;
+}
+
+footer{
+    background-image: url("./assets/images/back5.png");
+    height: 80px;
+}
+
+
+
+
+
+
+
