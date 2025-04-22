@@ -217,8 +217,8 @@
             <div id="myModal" class="modal">
                 <div class="modal-content">
                     <div class="modal_title_wrapper subhead">
-                      <span class="close">&times;</span>
-                      <button id="openSecondModal" class="arrow-btn">→</button>
+                      <button class="close" aria-label="Fermer"></button>
+                      <button id="openSecondModal" class="arrow-btn" aria-label="Suivant"></button>
                       <h2 id="modalTitle"></h2>
                       <span id="modalTitle_span"></span>
                     </div>
@@ -232,8 +232,8 @@
             <div id="secondModal" class="modal">
                 <div class="modal-content">
                   <div class="modal_title_wrapper subhead">
-                    <span class="second-close">✕</span>
-                    <button id="backToFirstModal" class="arrow-btn">←</button>
+                    <button class="second-close close" aria-label="Fermer"></button>
+                    <button id="backToFirstModal" class="arrow-btn second-back" aria-label="Retour"></button>
                     <h2 id="secondModalTitle"></h2>
                     <span id="secondModalTitle_span"></span>
                   </div>
