@@ -26,16 +26,29 @@
       }
     ],
     "second_modal": {
-      "title": "Besoin",
-      "title_span": "de créer un partenariat?",
+      "title": "Besoin de",
+      "title_span": "créer un partenariat?",
       "description": [
         "Ce projet visait à moderniser l’image de marque.",
         "Un QR code permet de rediriger les clients vers une landing page personnalisée.",
         "Le système de fidélité a été intégré à l’expérience client."
+      ],
+      "images": [
+        {
+          "src": "../assets/images/desbranches&vous1.png",
+          "alt": "Image Des Branches & Vous 1",
+          "class": "modal_img"
+        },
+        {
+          "src": "../assets/images/desbranches&vous2.png",
+          "alt": "Image Des Branches & Vous 2",
+          "class": "modal_img"
+        }
       ]
     }
   }
 ]
+
 
   
 
