@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalImagesContainer = document.getElementById('modalImagesContainer');
   const closeBtn = document.querySelector('.close');
   const openSecondModalBtn = document.getElementById('openSecondModal');
+  const modalUsedToolsImg = document.getElementById("modalUsedToolsImg");
 
   const secondModal = document.getElementById('secondModal');
   const secondModalTitle = document.getElementById('secondModalTitle');
@@ -44,6 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     modalTitleSpan.textContent = item.title_span || '';
     modalDescription.innerHTML = '';
     modalImagesContainer.innerHTML = '';
+    modalUsedToolsImg.innerHTML = '';
 
     if (Array.isArray(item.description)) {
       item.description.forEach(line => {
@@ -62,6 +64,24 @@ document.addEventListener('DOMContentLoaded', () => {
         img.alt = imgData.alt || '';
         img.className = imgData.class || 'modal_img';
         modalImagesContainer.appendChild(img);
+      });
+    }
+    if (item.imagesTools) {
+      item.imagesTools.forEach(imgData => {
+        if (imgData.icon) {
+          const icon = document.createElement('i');
+          icon.className = imgData.icon;
+          
+          if (imgData.color) {
+            icon.style.color = imgData.color;
+          }
+    
+          modalUsedToolsImg.appendChild(icon);
+        } else if (imgData.src) {
+          const img = document.createElement('img');
+          img.src = imgData.src;
+          modalUsedToolsImg.appendChild(img);
+        }
       });
     }
 

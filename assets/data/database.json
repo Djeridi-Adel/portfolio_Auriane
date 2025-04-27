@@ -1,6 +1,6 @@
 [
   {
-    "id": "photo1",
+    "id": "modal1",
     "title": "Besoin d'une",
     "title_span": "Carte de visite?",
     "description": [
@@ -8,9 +8,75 @@
       "Mise en avant des éléments importants",
       "Système de fidélité"
     ],
-    "tools": [
+    "imagesTools": [
       {
-        "src": "http://www.w3.org/2000/svg"
+        "icon": "fa-solid fa-circle-check check1",
+        "color": "#A44F30"        
+      },
+      {
+        "icon": "fa-solid fa-circle-check check2",
+        "color": "#ff914d" 
+      },
+      {
+        "icon": "fa-solid fa-circle-check check3",
+        "color": "#ffbd59" 
+      }
+    ],
+    "images": [
+      {
+        "src": "../assets/images/desbranches&vous1.png",
+        "alt": "Image Des Branches & Vous 1",
+        "class": "modal_img"
+      },
+      {
+        "src": "../assets/images/desbranches&vous2.png",
+        "alt": "Image Des Branches & Vous 2",
+        "class": "modal_img"
+      }
+    ],
+    "second_modal": {
+      "title": "Besoin de",
+      "title_span": "créer un partenariat?",
+      "description": [
+        "Ce projet visait à moderniser l’image de marque.",
+        "Un QR code permet de rediriger les clients vers une landing page personnalisée.",
+        "Le système de fidélité a été intégré à l’expérience client."
+      ],
+      "images": [
+        {
+          "src": "../assets/images/post-insta-modal.png",
+          "alt": "Post Instagramme @Lepetitdrômois",
+          "class": "modal_img"
+        },
+        {
+          "src": "../assets/images/desbranches&vous2.png",
+          "alt": "Image Des Branches & Vous 2",
+          "class": "modal_img"
+        }
+      ]
+    }
+  },
+  {
+    "id": "modal2",
+    "title": "Besoin de",
+    "title_span": "marketing participatif?",
+    "description": [
+      "Stories participatives \n - Questions/réponses (contribution des internautes \n",
+      "Objectifs \n - Augmenter le lien avec sa communauté",
+      "Système de fidélité"
+    ],
+    "imagesTools": [
+      {
+        "icon": "fa-solid fa-circle-check check1",
+        "color": "#A44F30"        
+      },
+      {
+        "icon": "fa-solid fa-circle-check check2",
+        "color": "#ff914d" 
+      },
+      {
+        "icon": "fa-solid fa-circle-check check3",
+        "color": "#ffbd59" 
       }
     ],
     "images": [
