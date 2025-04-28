@@ -24,7 +24,7 @@
                     <a class="link" href="#about">À propos</a>
                     <a class="link" href="#internship">Stage</a>
                     <a class="link" href="#project">Projets</a>
-                    <a class="link" href="./pages/work-study.html">Alternance</a>
+                    <a class="link" href="#work-study">Alternance</a>
                     <a class="link" href="#skills">Compétences</a>
                 </div>
             </nav>
@@ -216,9 +216,11 @@
               <!-- Modale -->
             <div id="myModal" class="modal">
                 <div class="modal-content">
+                    <div class="modal_nav">
+                        <button class="close" aria-label="Fermer"></button>
+                        <button id="openSecondModal" class="arrow-btn" aria-label="Suivant"></button>
+                    </div>
                     <div class="modal_title_wrapper subhead">
-                      <button class="close" aria-label="Fermer"></button>
-                      <button id="openSecondModal" class="arrow-btn" aria-label="Suivant"></button>
                       <h2 id="modalTitle"></h2>
                       <span id="modalTitle_span"></span>
                     </div>
@@ -231,22 +233,33 @@
                     </div>
                 </div>
             </div>
-            <!-- Modale 2-->
-            <div id="secondModal" class="modal">
-                <div class="modal-content">
-                  <div class="modal_title_wrapper subhead">
-                    <button class="second-close close" aria-label="Fermer"></button>
-                    <button id="backToFirstModal" class="arrow-btn second-back" aria-label="Retour"></button>
-                    <h2 id="secondModalTitle"></h2>
-                    <span id="secondModalTitle_span"></span>
-                  </div>
-                  <div class="modal-content-description">
-                    <p id="secondModalContent_description"></p>
-                    <div id="secondModalContent"></div>
-                    <div id="secondModalImagesContainer" class="modal-images"></div>
-                  </div>
-                </div>
-              </div>
+            <!-- Modale 2 -->
+<div id="secondModal" class="modal">
+    <div class="modal-content">
+      <div class="Secondmodal_nav">
+        <button class="second-close close" aria-label="Fermer"></button>
+        <button id="backToFirstModal" class="arrow-btn second-back" aria-label="Retour"></button>
+      </div>
+      <div class="modal_title_wrapper subhead">
+        <h2 id="secondModalTitle"></h2>
+        <span id="secondModalTitle_span"></span>
+      </div>
+      <div class="modal-content-description">
+        <div class="modal-content-description-wrapper">
+          <p id="secondModalContent_description"></p>
+          <div id="secondModalContent"></div>
+        </div>
+        <div id="secondModalImagesContainer" class="modal-images"></div>
+      </div>
+    </div>
+</div>
+<div id="imageOverlay" style="display:none; justify-content:center; align-items:center; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.8); z-index:1000;">
+    <img id="overlayImage" style="max-width:90%; max-height:90%; border-radius:10px; box-shadow:0 0 20px #fff;">
+    <button id="closeOverlay" style="position:absolute; top:20px; right:30px; font-size:30px; color:white; background:none; border:none; cursor:pointer;">&times;</button>
+  </div>
+  
+  
+            
 
         </section>
         <div class="separator"></div>
@@ -276,10 +289,37 @@
                 </div>
             </div>
         </section>
+        <div class="separator"></div>
+        <section id="work-study" class="work-study">
+            <div class="subhead">
+                <div class="circle1 blink"></div>
+                <div class="circle2 blink delay2"></div>
+                <div class="circle3 blink delay3"></div>
+                <H2>Alternance</H2>
+            </div>
+            <div class="work-study_description">
+                <p>Lors de mon cursus j'ai eu la chance de réaliser 2 ans d'alternance à la CNR (Compagnie National du Rhône), en tant que chargée de communication.
+                    <br>
+                    <br> Les objectifs étaient de découvrir tous les aspects de la communication 360° en : 
+                    <br>
+                    <br>- Organisant et participant à des événements.
+                    <br>- Créant un calendrier éditorial pour les publications.
+                    <br>- Réalisant des montages vidéos
+                    <br>- Créant des jeux ludiques a destination du public.
+                    <br>- Augmentant la visibilité des partenariats.
+                    <br>- Créant un suivi de partenariats.
+                </p>
+            </div>
+            <div class="image-gallery">
+                <div class="clickable-img_wrapper">
+                    <img src="./assets/images/pc_desbranches&vous.jpg" class="clickable-img" data-id="modal3">
+                    <span id="clickable-img_span">Voir les réalisations</span>
+                </div>
+            </div>
+        </section>
     </main>
     <footer>        
     </footer>
     <script src="./assets/script.js"></script>
-
 </body>
 </html>

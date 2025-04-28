@@ -21,6 +21,15 @@ document.addEventListener('DOMContentLoaded', () => {
   let imageData = [];
   let currentItem = null;
 
+  // ----------------- FONCTION POUR OUVRIR L'IMAGE EN GRAND -----------------
+  function openImageOverlay(src) {
+    const overlay = document.getElementById('imageOverlay');
+    const overlayImg = document.getElementById('overlayImage');
+    overlayImg.src = src;
+    overlay.style.display = 'flex';
+  }
+
+  // ----------------- FETCH DES DONNÉES -----------------
   fetch('assets/data/database.json')
     .then(response => response.json())
     .then(data => {
@@ -40,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .catch(error => console.error('Erreur JSON :', error));
 
+  // ----------------- AFFICHER LA PREMIÈRE MODALE -----------------
   function showFirstModal(item) {
     modalTitle.textContent = item.title || '';
     modalTitleSpan.textContent = item.title_span || '';
@@ -47,41 +57,59 @@ document.addEventListener('DOMContentLoaded', () => {
     modalImagesContainer.innerHTML = '';
     modalUsedToolsImg.innerHTML = '';
 
+    // Description
     if (Array.isArray(item.description)) {
-      item.description.forEach(line => {
-        const p = document.createElement('p');
-        p.textContent = line;
-        modalDescription.appendChild(p);
+      item.description.forEach((line, index) => {
+        const container = document.createElement('div');
+        container.classList.add('modal-description-line');
+
+        if (item.imagesTools && item.imagesTools[index]) {
+          const iconData = item.imagesTools[index];
+          const icon = document.createElement('i');
+          icon.className = iconData.icon;
+          if (iconData.color) {
+            icon.style.color = iconData.color;
+          }
+          container.appendChild(icon);
+        }
+
+        if (line.p) {
+          const parts = line.p.split('\n');
+
+          const titleSpan = document.createElement('span');
+          titleSpan.textContent = parts[0];
+          titleSpan.classList.add('modal-title-part');
+          container.appendChild(titleSpan);
+
+          if (parts.length > 1) {
+            parts.slice(1).forEach(subLine => {
+              const p = document.createElement('p');
+              p.textContent = subLine.trim();
+              container.appendChild(p);
+            });
+          }
+        }
+
+        modalDescription.appendChild(container);
       });
-    } else {
-      modalDescription.textContent = item.description || '';
+    } else if (item.description) {
+      const p = document.createElement('p');
+      p.textContent = item.description;
+      modalDescription.appendChild(p);
     }
 
+    // Images
     if (item.images) {
       item.images.forEach(imgData => {
         const img = document.createElement('img');
         img.src = imgData.src;
         img.alt = imgData.alt || '';
         img.className = imgData.class || 'modal_img';
+
+        // ➔ Click pour ouvrir en grand
+        img.addEventListener('click', () => openImageOverlay(img.src));
+
         modalImagesContainer.appendChild(img);
-      });
-    }
-    if (item.imagesTools) {
-      item.imagesTools.forEach(imgData => {
-        if (imgData.icon) {
-          const icon = document.createElement('i');
-          icon.className = imgData.icon;
-          
-          if (imgData.color) {
-            icon.style.color = imgData.color;
-          }
-    
-          modalUsedToolsImg.appendChild(icon);
-        } else if (imgData.src) {
-          const img = document.createElement('img');
-          img.src = imgData.src;
-          modalUsedToolsImg.appendChild(img);
-        }
       });
     }
 
@@ -89,6 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(() => modal.classList.add('show'));
   }
 
+  // ----------------- AFFICHER LA SECONDE MODALE -----------------
   openSecondModalBtn.addEventListener('click', () => {
     if (!currentItem || !currentItem.second_modal) return;
 
@@ -116,6 +145,10 @@ document.addEventListener('DOMContentLoaded', () => {
         img.src = imgData.src;
         img.alt = imgData.alt || '';
         img.className = imgData.class || 'modal_img';
+
+        // ➔ Click pour ouvrir en grand
+        img.addEventListener('click', () => openImageOverlay(img.src));
+
         secondModalImagesContainer.appendChild(img);
       });
     }
@@ -128,6 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 300);
   });
 
+  // ----------------- BOUTONS POUR FERMER LES MODALES -----------------
   backToFirstModalBtn.addEventListener('click', () => {
     secondModal.classList.remove('show');
     setTimeout(() => {
@@ -154,6 +188,17 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.target === secondModal) {
       secondModal.classList.remove('show');
       setTimeout(() => secondModal.style.display = 'none', 300);
+    }
+  });
+
+  // ----------------- OVERLAY IMAGE - POUR FERMER -----------------
+  document.getElementById('closeOverlay').addEventListener('click', () => {
+    document.getElementById('imageOverlay').style.display = 'none';
+  });
+
+  document.getElementById('imageOverlay').addEventListener('click', (e) => {
+    if (e.target.id === 'imageOverlay') {
+      document.getElementById('imageOverlay').style.display = 'none';
     }
   });
 });

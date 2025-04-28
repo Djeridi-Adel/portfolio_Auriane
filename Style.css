@@ -7,6 +7,7 @@
  @import "./assets/styles/modal.css";
  @import "./assets/styles/internship.css";
  @import "./assets/styles/btn-modal.css";
+ @import "./assets/styles/overlay.css";
  
 ::-webkit-scrollbar {
     display: none;
@@ -29,7 +30,7 @@ h2{
     margin-left: 5px;
     font-size: 40px;
 }
-.introduction p{
+p{
     padding: 30px 30px 30px 30px;
     font-family: "Quicksand", sans-serif;
     margin: 0;
@@ -43,7 +44,7 @@ h2{
     text-decoration: underline #a44f30;
 }
 
-#about, #skills, #internship, #project{
+#about, #skills, #internship, #project, #work-study{
     padding-top: 200px;
     padding-bottom: 250px;
 }
@@ -55,6 +56,7 @@ h2{
     align-items: center;
     justify-content: space-around;
     padding-top: 100px;
+    flex-wrap: wrap;
 }
 
 .skill_panel{
@@ -66,12 +68,12 @@ h2{
 }
 
 .skill_panel2{
-    width: 50%;
     height: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    padding-right: 5px;
+    padding-top: 10px;
 }
 .other_skill_panel{
     height: 100px;

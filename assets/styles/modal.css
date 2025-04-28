@@ -57,6 +57,16 @@ body {
     white-space: pre-line;
   }
   
+  .modal p {
+    padding: 0;
+  }
+
+  .modal_nav, .Secondmodal_nav{
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 10px;
+  }
+
   .modal.show {
     display: flex;
     right: 0;
@@ -74,6 +84,7 @@ body {
     font-family: "Dancing Script", cursive;
     font-size: 40px;
     color: #a44f30;
+    text-align: left;
 }
   .modal-content {
     padding: 20px;
@@ -97,54 +108,97 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    padding: 20px 0;
+    padding: 20px;
+    width: 100%;
+    height: 90%;
   }
   
   .modal_img {
-    width: 500px;
+    width: 450px;
     max-width: 90%;
+    height: auto;
+    object-fit: contain;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
+  
+  .modal-content-description-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    width: 100%;
+  }
+
   
   .modal-content-description{
     display: flex;
     flex-direction: row-reverse;
     justify-content: center;
     align-items: center;
-    gap: 25px;
+    gap: 10%;
     width: 100%;
+    position: relative;
   }
-  
-  #modalDescription p{
-    text-align: left;
-  }
-  
-  .modal-content-description-wrapper{
-    display: flex;
-    flex-direction: row-reverse;
-  }
+   
 
-  #modalUsedToolsImg{
+  .modal-description-line {
+    position: relative;
+    margin-bottom: 16px;
     display: flex;
     flex-direction: column;
-  }
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+}
+
+.modal-title-part {
+  color: #a44f30;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.modal-description-line p {
+  margin: 5px 0;
+  font-size: 1rem;
+  font-weight: bold;
+}
 
   .check1{
-    position: relative;
+    position: absolute;
     font-size: 25px;
-    top: 10%;
-    padding-right: 3px;
+    top: 5%;
+    left: -13%;
   }
   .check2{
-    position: relative;
+    position: absolute;
     font-size: 25px;
-    top: 30%;
+    top: 5%;
+    left: -13%;
     padding-right: 3px;
   }
   .check3{
-    position: relative;
+    position: absolute;
     font-size: 25px;
-    top: 48%;
+    top: 5%;
+    left: -13%;
     padding-right: 3px;
   }
+
+  @media (max-width: 768px) {
+    .modal-content-description {
+      flex-direction: column;
+      gap: 30px;
+    }
+    .modal-content-description-wrapper {
+      width: 100%;
+      align-items: center;
+    }
+    .modal-images{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      width: 50%;
+    }
+  }
+  
