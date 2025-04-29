@@ -207,9 +207,48 @@ margin-right: 5px;
 footer{
     background-image: url("./assets/images/back5.png");
     height: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.footer_p{
+    color: #a44f30;
+    font-weight: bold;
 }
 
+.footer_button{
+    background-color: #a44f30;
+    border-radius: 12px;
+    font-size: 16px;
+    color: #fff;
+    height: 25px;
+    font-family: "Quicksand", sans-serif;
+    text-decoration: none;
+    padding-inline: 20px;
+    padding-bottom: 2px;
+    transition: 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+.footer_button:hover {
+    transform: scale(1.1);
+}
+
+@media screen and (max-width: 768px) {
+    .personality {
+    margin-top: 40px;
+    margin-bottom: 50px;
+    }
+    footer {
+    height: 250px;
+    }
+    #about, #skills, #internship, #project, #work-study{
+        padding-top: 150px;
+        padding-bottom: 150px;
+    }
+  }
 
 
 

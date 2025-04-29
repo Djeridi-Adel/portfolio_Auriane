@@ -95,3 +95,24 @@ h1{
     object-fit: cover;
     
 }
+
+@media screen and (max-width: 768px) {
+    .header{
+        flex-direction: column;
+    }
+    .header_card {
+        justify-content: flex-start;
+        width: 400px;
+        margin-left: 0;
+    }
+    .header_img{
+        height: auto;
+    }
+    .title {
+        width: auto;
+        padding-top: 150px;
+    }
+    .header_circle1 {
+        padding-left: 0;
+    }
+  }
