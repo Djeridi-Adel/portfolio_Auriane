@@ -30,7 +30,7 @@
     ],
     "images": [
       {
-        "src": "../assets/images/desbranchesetvous1.png",
+        "src": "assets/images/desbranchesetvous1.png",
         "alt": "Image Des Branches & Vous",
         "class": "modal_img"
       },
