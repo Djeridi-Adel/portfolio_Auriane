@@ -30,13 +30,13 @@
     ],
     "images": [
       {
-        "src": "../assets/images/desbranches&vous1.png",
-        "alt": "Image Des Branches & Vous 1",
+        "src": "../assets/images/desbranchesetvous1.png",
+        "alt": "Image Des Branches & Vous",
         "class": "modal_img"
       },
       {
-        "src": "../assets/images/desbranches&vous2.png",
-        "alt": "Image Des Branches & Vous 2",
+        "src": "../assets/images/desbranchesetvous2.png",
+        "alt": "Image Des Branches & Vous",
         "class": "modal_img"
       }
     ],
@@ -50,13 +50,13 @@
       ],
       "images": [
         {
-          "src": "../assets/images/desbranches&vous1.png",
+          "src": "../assets/images/desbranchesvous1.png",
           "alt": "Post Instagramme @Lepetitdrômois",
           "class": "modal_img"
         },
         {
-          "src": "../assets/images/desbranches&vous2.png",
-          "alt": "Image Des Branches & Vous 2",
+          "src": "../assets/images/desbranchesetvous2.png",
+          "alt": "Image Des Branches & Vous",
           "class": "modal_img"
         }
       ]
@@ -93,13 +93,13 @@
     ],
     "images": [
       {
-        "src": "../assets/images/desbranches&vous1.png",
-        "alt": "Image Des Branches & Vous 1",
+        "src": "../assets/images/desbranchesetvous1.png",
+        "alt": "Image Des Branches & Vous",
         "class": "modal_img"
       },
       {
-        "src": "../assets/images/desbranches&vous2.png",
-        "alt": "Image Des Branches & Vous 2",
+        "src": "../assets/images/desbranchesvous2.png",
+        "alt": "Image Des Branches & Vous",
         "class": "modal_img"
       }
     ],
@@ -118,8 +118,8 @@
           "class": "modal_img"
         },
         {
-          "src": "../assets/images/desbranches&vous2.png",
-          "alt": "Image Des Branches & Vous 2",
+          "src": "../assets/images/desbranchesetvous2.png",
+          "alt": "Image Des Branches & Vous",
           "class": "modal_img"
         }
       ]
@@ -156,13 +156,13 @@
     ],
     "images": [
       {
-      "src": "../assets/images/desbranches&vous1.png",
-      "alt": "Image Des Branches & Vous 1",
+      "src": "../assets/images/desbranchesetvous1.png",
+      "alt": "Image Des Branches & Vous",
       "class": "modal_img"
       },
       {
-      "src": "../assets/images/desbranches&vous2.png",
-      "alt": "Image Des Branches & Vous 2",
+      "src": "../assets/images/desbranchesetvous2.png",
+      "alt": "Image Des Branches & Vous",
       "class": "modal_img"
       }
     ],
@@ -181,8 +181,8 @@
         "class": "modal_img"
         },
         {
-        "src": "../assets/images/desbranches&vous2.png",
-        "alt": "Image Des Branches & Vous 2",
+        "src": "../assets/images/desbranchesetvous2.png",
+        "alt": "Image Des Branches & Vous",
         "class": "modal_img"
         }
       ]
