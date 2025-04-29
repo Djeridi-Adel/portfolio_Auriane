@@ -202,3 +202,25 @@ body {
     }
   }
   
+  @media (max-width: 540px) {
+    h2{
+      margin: 0;
+    }
+    .modal_title_wrapper {
+      flex-direction: column;
+      }
+    #myModal .subhead, #secondModal .subhead {
+      padding-bottom: 20px;
+    }
+    .modal_nav {
+      padding-right: 10px;
+    }
+    #modalTitle_span{
+      text-align: center;
+    }
+    
+    .check1, .check2 , .check3 {
+      left: -9%;
+    }
+  }
+  
