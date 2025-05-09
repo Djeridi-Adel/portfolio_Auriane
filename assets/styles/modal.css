@@ -44,7 +44,7 @@ body {
     background-image: url("../images/background2.png");
     display: none;
     position: fixed;
-    top: 0;
+    top: -11px;
     right: -100%;
     width: 100%;
     height: 100%;
@@ -61,12 +61,6 @@ body {
     padding: 0;
   }
 
-  .modal_nav, .Secondmodal_nav{
-    display: flex;
-    flex-direction: row-reverse;
-    gap: 10px;
-  }
-
   .modal.show {
     display: flex;
     right: 0;
@@ -80,7 +74,7 @@ body {
     gap: 10px;
 }  
 
-#modalTitle_span, #secondModalTitle_span{
+.modalTitle_span, #secondModalTitle_span{
     font-family: "Dancing Script", cursive;
     font-size: 40px;
     color: #a44f30;
@@ -120,6 +114,7 @@ body {
     object-fit: contain;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
   }
   
   .modal-content-description-wrapper {
@@ -167,22 +162,28 @@ body {
   .check1{
     position: absolute;
     font-size: 25px;
-    top: 5%;
     left: -13%;
+    padding-right: 3px;
+    padding-top: 17px;
   }
   .check2{
     position: absolute;
     font-size: 25px;
-    top: 5%;
     left: -13%;
     padding-right: 3px;
+    padding-top: 17px;
   }
   .check3{
     position: absolute;
     font-size: 25px;
-    top: 5%;
     left: -13%;
     padding-right: 3px;
+    padding-top: 17px;
+  }
+
+  #modal1_page2 .modal-description-line, #modal2_page1 .modal-description-line,
+  #modal2_page2 .modal-description-line {
+    margin-left: 30px;
   }
 
   @media (max-width: 768px) {

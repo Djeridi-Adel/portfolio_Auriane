@@ -1,204 +1,109 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const images = document.querySelectorAll('.clickable-img');
-  const modal = document.getElementById('myModal');
-  const modalTitle = document.getElementById('modalTitle');
-  const modalTitleSpan = document.getElementById('modalTitle_span');
-  const modalDescription = document.getElementById('modalDescription');
-  const modalImagesContainer = document.getElementById('modalImagesContainer');
-  const closeBtn = document.querySelector('.close');
-  const openSecondModalBtn = document.getElementById('openSecondModal');
-  const modalUsedToolsImg = document.getElementById("modalUsedToolsImg");
+document.addEventListener("DOMContentLoaded", async () => {
+  const response = await fetch("assets/data/database.json");
+  const data = await response.json();
 
-  const secondModal = document.getElementById('secondModal');
-  const secondModalTitle = document.getElementById('secondModalTitle');
-  const secondModalTitleSpan = document.getElementById('secondModalTitle_span');
-  const secondModalDescription = document.getElementById('secondModalContent_description');
-  const secondModalImagesContainer = document.getElementById('secondModalImagesContainer');
-  const secondModalContent = document.getElementById('secondModalContent');
-  const closeSecondModalBtn = document.querySelector('.second-close');
-  const backToFirstModalBtn = document.getElementById('backToFirstModal');
+  // Génére toutes les modales (chaque page est une modale)
+  let modalCount = 0;
+  data.forEach(modal => {
+    modal.pages.forEach((page, pageIndex) => {
+      const modalDiv = document.createElement("div");
+      modalCount++;
 
-  let imageData = [];
-  let currentItem = null;
+      const modalId = `${modal.id}_page${pageIndex + 1}`;
+      modalDiv.classList.add("modal");
+      modalDiv.id = modalId;
 
-  // ----------------- FONCTION POUR OUVRIR L'IMAGE EN GRAND -----------------
-  function openImageOverlay(src) {
-    const overlay = document.getElementById('imageOverlay');
-    const overlayImg = document.getElementById('overlayImage');
-    overlayImg.src = src;
+      modalDiv.innerHTML = `
+        <div class="modal-content">
+          <div class="modal_nav">
+            <button class="close-button"></button>
+            ${pageIndex > 0 ? `<button class="prev-button" data-prev="${modal.id}_page${pageIndex}"></button>` : ""}
+            ${pageIndex < modal.pages.length - 1 ? `<button class="next-button" data-next="${modal.id}_page${pageIndex + 2}"></button>` : ""}
+          </div>
+          <div class="modal_title_wrapper">
+            <h2>${page.title} <span class="modalTitle_span">${page.title_span}</span></h2>
+          </div>
+          <div class="modal-content-description">
+            <div class="modal-description-line">
+        ${page.description.map((item, index) => `
+          <div class="modal-description-item">
+            <i class="${modal.imagesTools[index]?.icon}" style="color: ${modal.imagesTools[index]?.color};"></i>
+            <p>${item.p}</p>
+          </div>
+        `).join("")}
+      </div>
+      <div class="modal-images">
+        ${page.images.map(img => `
+          <img src="${img.src}" alt="${img.alt}" class="${img.class}">
+        `).join("")}
+      </div>
+    </div>
+  `;
+
+      document.body.appendChild(modalDiv);
+    });
+  });
+
+  // Ouvrir la première modale au clic
+  document.querySelectorAll(".clickable-img").forEach(img => {
+    img.addEventListener("click", (e) => {
+      const modalId = e.target.dataset.id;
+      const firstPageModal = document.getElementById(`${modalId}_page1`);
+      if (firstPageModal) firstPageModal.classList.add("show");
+    });
+  });
+
+  // Fermer les modales
+  document.addEventListener("click", (e) => {
+    if (e.target.classList.contains("close-button")) {
+      const modal = e.target.closest(".modal");
+      modal.classList.remove("show");
+    }
+
+    // Suivant
+    if (e.target.classList.contains("next-button")) {
+      const currentModal = e.target.closest(".modal");
+      currentModal.classList.remove("show");
+
+      const nextId = e.target.dataset.next;
+      const nextModal = document.getElementById(nextId);
+      if (nextModal) nextModal.classList.add("show");
+    }
+
+    // Précédent
+    if (e.target.classList.contains("prev-button")) {
+      const currentModal = e.target.closest(".modal");
+      currentModal.classList.remove("show");
+
+      const prevId = e.target.dataset.prev;
+      const prevModal = document.getElementById(prevId);
+      if (prevModal) prevModal.classList.add("show");
+    }
+  });
+
+  // Sélection de l'overlay
+const overlay = document.getElementById('image-overlay');
+const overlayImg = document.getElementById('overlay-img');
+const overlayClose = document.querySelector('.overlay-close');
+
+// Délégation : gestion du clic sur les images dans les modales
+document.body.addEventListener('click', function(e) {
+  if (e.target.classList.contains('modal_img')) {
+    overlayImg.src = e.target.src;
     overlay.style.display = 'flex';
   }
+});
 
-  // ----------------- FETCH DES DONNÉES -----------------
-  fetch('assets/data/database.json')
-    .then(response => response.json())
-    .then(data => {
-      imageData = data;
+// Fermeture de l’overlay
+overlayClose.addEventListener('click', () => {
+  overlay.style.display = 'none';
+});
 
-      images.forEach(img => {
-        img.addEventListener('click', () => {
-          const id = img.getAttribute('data-id');
-          const item = imageData.find(el => el.id === id);
-
-          if (item) {
-            currentItem = item;
-            showFirstModal(item);
-          }
-        });
-      });
-    })
-    .catch(error => console.error('Erreur JSON :', error));
-
-  // ----------------- AFFICHER LA PREMIÈRE MODALE -----------------
-  function showFirstModal(item) {
-    modalTitle.textContent = item.title || '';
-    modalTitleSpan.textContent = item.title_span || '';
-    modalDescription.innerHTML = '';
-    modalImagesContainer.innerHTML = '';
-    modalUsedToolsImg.innerHTML = '';
-
-    // Description
-    if (Array.isArray(item.description)) {
-      item.description.forEach((line, index) => {
-        const container = document.createElement('div');
-        container.classList.add('modal-description-line');
-
-        if (item.imagesTools && item.imagesTools[index]) {
-          const iconData = item.imagesTools[index];
-          const icon = document.createElement('i');
-          icon.className = iconData.icon;
-          if (iconData.color) {
-            icon.style.color = iconData.color;
-          }
-          container.appendChild(icon);
-        }
-
-        if (line.p) {
-          const parts = line.p.split('\n');
-
-          const titleSpan = document.createElement('span');
-          titleSpan.textContent = parts[0];
-          titleSpan.classList.add('modal-title-part');
-          container.appendChild(titleSpan);
-
-          if (parts.length > 1) {
-            parts.slice(1).forEach(subLine => {
-              const p = document.createElement('p');
-              p.textContent = subLine.trim();
-              container.appendChild(p);
-            });
-          }
-        }
-
-        modalDescription.appendChild(container);
-      });
-    } else if (item.description) {
-      const p = document.createElement('p');
-      p.textContent = item.description;
-      modalDescription.appendChild(p);
-    }
-
-    // Images
-    if (item.images) {
-      item.images.forEach(imgData => {
-        const img = document.createElement('img');
-        img.src = imgData.src;
-        img.alt = imgData.alt || '';
-        img.className = imgData.class || 'modal_img';
-
-        // ➔ Click pour ouvrir en grand
-        img.addEventListener('click', () => openImageOverlay(img.src));
-
-        modalImagesContainer.appendChild(img);
-      });
-    }
-
-    modal.style.display = 'flex';
-    requestAnimationFrame(() => modal.classList.add('show'));
+// Fermeture au clic en dehors de l'image
+overlay.addEventListener('click', (e) => {
+  if (e.target === overlay) {
+    overlay.style.display = 'none';
   }
+});
 
-  // ----------------- AFFICHER LA SECONDE MODALE -----------------
-  openSecondModalBtn.addEventListener('click', () => {
-    if (!currentItem || !currentItem.second_modal) return;
-
-    const second = currentItem.second_modal;
-
-    secondModalTitle.textContent = second.title || '';
-    secondModalTitleSpan.textContent = second.title_span || '';
-    secondModalDescription.innerHTML = '';
-    secondModalContent.innerHTML = '';
-    secondModalImagesContainer.innerHTML = '';
-
-    if (Array.isArray(second.content)) {
-      second.content.forEach(line => {
-        const p = document.createElement('p');
-        p.textContent = line;
-        secondModalContent.appendChild(p);
-      });
-    } else {
-      secondModalDescription.textContent = second.description || '';
-    }
-
-    if (second.images) {
-      second.images.forEach(imgData => {
-        const img = document.createElement('img');
-        img.src = imgData.src;
-        img.alt = imgData.alt || '';
-        img.className = imgData.class || 'modal_img';
-
-        // ➔ Click pour ouvrir en grand
-        img.addEventListener('click', () => openImageOverlay(img.src));
-
-        secondModalImagesContainer.appendChild(img);
-      });
-    }
-
-    modal.classList.remove('show');
-    setTimeout(() => {
-      modal.style.display = 'none';
-      secondModal.style.display = 'flex';
-      requestAnimationFrame(() => secondModal.classList.add('show'));
-    }, 300);
-  });
-
-  // ----------------- BOUTONS POUR FERMER LES MODALES -----------------
-  backToFirstModalBtn.addEventListener('click', () => {
-    secondModal.classList.remove('show');
-    setTimeout(() => {
-      secondModal.style.display = 'none';
-      showFirstModal(currentItem);
-    }, 300);
-  });
-
-  closeSecondModalBtn.addEventListener('click', () => {
-    secondModal.classList.remove('show');
-    setTimeout(() => secondModal.style.display = 'none', 300);
-  });
-
-  closeBtn.addEventListener('click', () => {
-    modal.classList.remove('show');
-    setTimeout(() => modal.style.display = 'none', 300);
-  });
-
-  window.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      modal.classList.remove('show');
-      setTimeout(() => modal.style.display = 'none', 300);
-    }
-    if (e.target === secondModal) {
-      secondModal.classList.remove('show');
-      setTimeout(() => secondModal.style.display = 'none', 300);
-    }
-  });
-
-  // ----------------- OVERLAY IMAGE - POUR FERMER -----------------
-  document.getElementById('closeOverlay').addEventListener('click', () => {
-    document.getElementById('imageOverlay').style.display = 'none';
-  });
-
-  document.getElementById('imageOverlay').addEventListener('click', (e) => {
-    if (e.target.id === 'imageOverlay') {
-      document.getElementById('imageOverlay').style.display = 'none';
-    }
-  });
 });

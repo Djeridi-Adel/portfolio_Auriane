@@ -1,0 +1,35 @@
+footer{
+    background-image: url("../images/back5.png");
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.footer_p{
+    color: #a44f30;
+    font-weight: bold;
+}
+
+.footer_button{
+    background-color: #a44f30;
+    border-radius: 12px;
+    height: 25px;
+    padding-bottom: 2px;
+    transition: 0.2s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer_button a {
+    padding-inline: 20px;
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    font-family: "Quicksand", sans-serif;
+}
+
+.footer_button:hover {
+    transform: scale(1.1);
+}

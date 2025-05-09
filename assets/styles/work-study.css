@@ -1,4 +1,4 @@
-.intership_description {
+.work-study_description {
     padding-top: 50px;
     display: flex;
     flex-direction: row;
@@ -6,14 +6,16 @@
     align-items: center;
 }
 
-.img_logo {
-    width: 100%;
-    max-width: 450px;
+.logo_cnr {
+    padding: 20px;
 }
 
 @media screen and (max-width: 960px) {
-    .intership_description {
+    .work-study_description {
         flex-direction: column;
+    }
+    .logo_cnr {
+        max-width: 350px;
     }
     
   }

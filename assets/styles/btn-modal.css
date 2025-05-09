@@ -1,9 +1,8 @@
 /* ==== BOUTONS ==== */
 
-.arrow-btn,
-.second-back,
-.close,
-.second-close {
+.next-button,
+.prev-button,
+.close-button {
   position: relative;
   width: 36px;
   height: 36px;
@@ -15,49 +14,45 @@
   transition: all 0.3s ease;
 }
 
-/* FLÈCHE → (ouvrir seconde modale) */
-.arrow-btn::before {
+/* FLÈCHE → (modale suivante) */
+.next-button::before {
   content: '';
   position: absolute;
   width: 10px;
   height: 10px;
   border-top: 2px solid white;
   border-right: 2px solid white;
-  transform: rotate(45deg);
   top: 50%;
-  left: 40%;
+  left: 50%;
   transform: translate(-50%, -50%) rotate(45deg);
   transition: transform 0.3s ease;
 }
 
-.arrow-btn:hover::before {
+.next-button:hover::before {
   transform: translate(-50%, -50%) rotate(45deg) translateX(2px) scale(1.1);
 }
 
-/* FLÈCHE ← (retour à la première modale) */
-.second-back::before {
+/* FLÈCHE ← (modale précédente) */
+.prev-button::before {
   content: '';
   position: absolute;
   width: 10px;
   height: 10px;
   border-top: 2px solid white;
   border-left: 2px solid white;
-  border-right: 0;
   top: 50%;
-  left: 60%;
+  left: 50%;
   transform: translate(-50%, -50%) rotate(-45deg);
   transition: transform 0.3s ease;
 }
 
-.second-back:hover::before {
+.prev-button:hover::before {
   transform: translate(-50%, -50%) rotate(-45deg) translateX(-2px) scale(1.1);
 }
 
-/* CROIX X */
-.close::before,
-.close::after,
-.second-close::before,
-.second-close::after {
+/* CROIX X (fermeture) */
+.close-button::before,
+.close-button::after {
   content: '';
   position: absolute;
   top: 50%;
@@ -68,23 +63,27 @@
   transition: all 0.3s ease;
 }
 
-.close::before,
-.second-close::before {
+.close-button::before {
   transform: translate(-50%, -50%) rotate(45deg);
 }
 
-.close::after,
-.second-close::after {
+.close-button::after {
   transform: translate(-50%, -50%) rotate(-45deg);
 }
 
-/* EFFET CROIX ANIMÉE AU HOVER */
-.close:hover::before,
-.second-close:hover::before {
+.close-button:hover::before {
   transform: translate(-50%, -50%) rotate(135deg);
 }
 
-.close:hover::after,
-.second-close:hover::after {
+.close-button:hover::after {
   transform: translate(-50%, -50%) rotate(45deg);
+}
+
+/* CONTAINER NAVIGATION */
+.modal_nav {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  gap: 12px;
+  padding: 10px;
 }
