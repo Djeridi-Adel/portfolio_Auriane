@@ -139,8 +139,13 @@
     ],
         "images": [
           {
-            "src": "./assets/images/desbranchesetvous2.png",
-            "alt": "Résultats",
+            "src": "./assets/images/pocheron-rouge.png",
+            "alt": "Le petit Pocheron Rouge",
+            "class": "modal_img"
+          },
+          {
+            "src": "./assets/images/pocheron-rouge2.png",
+            "alt": "Le petit Pocheron Rouge",
             "class": "modal_img"
           }
         ]
@@ -165,7 +170,7 @@
     ],
     "images": [
       {
-        "src": "./assets/images/desbranchesetvous2.png",
+        "src": "./assets/images/pocheron-rouge2.png",
         "alt": "Image Des Branches & Vous",
         "class": "modal_img"
       },

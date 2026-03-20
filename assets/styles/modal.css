@@ -44,16 +44,16 @@ body {
     background-image: url("../images/background2.png");
     display: none;
     position: fixed;
-    top: -11px;
+    top: 0;
     right: -100%;
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,0.6);
     justify-content: center;
+    overflow-y: auto;
     transition: right 0.3s ease;
     z-index: 999;
     text-align: center;
-    margin-top: 50px;
     white-space: pre-line;
   }
   
@@ -82,11 +82,13 @@ body {
 }
   .modal-content {
     padding: 20px;
+    padding-top: 30px;
     border-radius: 10px;
     transform: scale(0.95);
     transition: transform 0.3s ease, opacity 0.3s ease;
     opacity: 0;
     width: 90%;
+    align-self: flex-start;
   }
   
   
@@ -104,7 +106,6 @@ body {
     gap: 20px;
     padding: 20px;
     width: 100%;
-    height: 90%;
   }
   
   .modal_img {
@@ -224,4 +225,3 @@ body {
       left: -9%;
     }
   }
-  
