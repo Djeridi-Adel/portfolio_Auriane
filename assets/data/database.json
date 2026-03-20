@@ -139,12 +139,12 @@
     ],
         "images": [
           {
-            "src": "./assets/images/pocheron-rouge.png",
+            "src": "./assets/images/pocheron-rouge.PNG",
             "alt": "Le petit Pocheron Rouge",
             "class": "modal_img"
           },
           {
-            "src": "./assets/images/pocheron-rouge2.png",
+            "src": "./assets/images/pocheron-rouge2.PNG",
             "alt": "Le petit Pocheron Rouge",
             "class": "modal_img"
           }
